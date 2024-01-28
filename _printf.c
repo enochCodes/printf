@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _printf - Custom printf function handel 's' 'd' '%' 'c'
+ * _printf - Custom printf function handel 's' 'd' '%' 'c' 'i'
  * @format: Format string
  * Return: The number of characters printed
  */
