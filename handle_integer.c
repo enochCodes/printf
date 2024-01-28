@@ -1,24 +1,27 @@
 #include "main.h"
-
+/**
+ * handle_integer - Handles the 'i' conversion specifier in _printf
+ * @args: va_list containing the arguments
+ * @count: pointer to the count of characters printed
+ */
 void handle_integer(va_list args, int *count)
 {
 	int num = va_arg(args, int);
 	char buffer[12];
 	int i = 0;
-	
-	if (num < 0) 
+
+	if (num < 0)
 	{
 		putchar('-');
 		(*count)++;
 		num = -num;
 	}
-	do
-	{
+	do {
 		buffer[i++] = num % 10 + '0';
 		num /= 10;
-	}
-	while (num != 0);
-	while (--i >= 0) {
+	} while (num != 0);
+	while (--i >= 0)
+	{
 		putchar(buffer[i]);
 		(*count)++;
 	}
