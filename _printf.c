@@ -1,5 +1,5 @@
 #include "main.h"
-/*
+/**
  * handle_char - Handles the 'c' conversion specifier in _printf
  * @args: va_list containing the arguments
  * @count: pointer to the count of characters printed
@@ -12,7 +12,7 @@ void handle_char(va_list args, int *count)
 	putchar(ch);
 	(*count)++;
 }
-/*
+/**
  * handle_string - Handles the 's' conversion specifier in _printf
  * @args: va_list containing the arguments
  * @count: pointer to the count of characters printed
@@ -30,7 +30,7 @@ void handle_string(va_list args, int *count)
 		(*count)++;
 	}
 }
-/*
+/**
  * handle_decimal - Handles the 'd' conversion specifier in _printf
  * @args: va_list containing the arguments
  * @count: pointer to the count of characters printed
@@ -66,10 +66,10 @@ void handle_decimal(va_list args, int *count)
 		divisor /= 10;
 	}
 }
-/*
+/**
  * _printf - Custom printf function with limited functionality
  * @format: Format string containing conversion specifiers
- * Return: Number of characters printed (excluding the null byte)
+ * Return: The number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
