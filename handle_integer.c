@@ -1,65 +1,38 @@
 #include "main.h"
 /**
- * handle_integer - Handles the 'i' conversion specifier in _printf
- * @args: va_list containing the arguments
- * @count: pointer to the count of characters printed
+ * _putchar - Custom putchar function
+ * @c: The character to be printed
+ * @count: Pointer to the count of printed characters
  */
-void handle_integer(va_list args, int *count)
+void _putchar(char c, int *count)
 {
-	int num = va_arg(args, int);
-	char buffer[12];
-	int i = 0;
-
-	if (num < 0)
-	{
-		putchar('-');
-		(*count)++;
-		num = -num;
-	}
-	do {
-		buffer[i++] = num % 10 + '0';
-		num /= 10;
-	} while (num != 0);
-	while (--i >= 0)
-	{
-		putchar(buffer[i]);
-		(*count)++;
-	}
+    putchar(c);
+    (*count)++;
 }
-/**
- * handle_decimal - Handles the 'd' conversion specifier in _printf
- * @args: va_list containing the arguments
- * @count: pointer to the count of characters printed
- */
 
+/**
+ * handle_decimal - Handle the 'd' and 'i' format specifiers
+ * @args: Arguments list
+ * @count: Pointer to the count of printed characters
+ */
 void handle_decimal(va_list args, int *count)
 {
-	int num;
-	int temp;
-	int divisor;
+    int num = va_arg(args, int);
+    int divisor = 1;
 
-	num = va_arg(args, int);
-	divisor = 1;
-	temp = num;
+    if (num < 0)
+    {
+        _putchar('-', count);
+        num = -num;
+    }
 
-	if (num < 0)
-	{
-		putchar('-');
-		(*count)++;
-		num = -num;
-	}
-	while (temp > 9)
-	{
-		temp /= 10;
-		divisor *= 10;
-	}
-	while (divisor > 0)
-	{
-		int digit = num / divisor;
+    while (num / divisor > 9)
+        divisor *= 10;
 
-		putchar(digit + '0');
-		(*count)++;
-		num %= divisor;
-		divisor /= 10;
-	}
+    while (divisor != 0)
+    {
+        _putchar((num / divisor) + '0', count);
+        num %= divisor;
+        divisor /= 10;
+    }
 }

@@ -28,11 +28,9 @@ int _printf(const char *format, ...)
 				case 's':
 					handle_string(args, &count);
 					break;
+				case 'i':
 				case 'd':
 					handle_decimal(args, &count);
-					break;
-				case 'i':
-					handle_integer(args, &count);
 					break;
 				case '%':
 					putchar('%');
