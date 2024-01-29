@@ -18,32 +18,29 @@ int _printf(const char *format, ...)
 			putchar(format[i]);
 			count++;
 		}
-		else
+		switch (format[i + 1])
 		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					handle_char(args, &count);
-					break;
-				case 's':
-					handle_string(args, &count);
-					break;
-				case '%':
-					putchar('%');
-					count++;
-					break;
-				case 'd':
-					handle_decimal(args, &count);
-					count++;
-					break;
-				default:
+			case 'c':
+				handle_char(args, &count);
+				break;
+			case 's':
+				handle_string(args, &count);
+				break;
+			case '%':
+				putchar('%');
+				count++;
+				break;
+			case 'd':
+				handle_decimal(args, &count);
+				count++;
+				break;
+			default:
 				putchar('%');
 				putchar(format[i + 1]);
 				count += 2;
 				break;
-			}
-			i++;
 		}
+		i++;
 	}
 	va_end(args);
 	return (count);

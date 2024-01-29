@@ -17,20 +17,19 @@ void handle_decimal(va_list args, int *count)
 	if (num < 0)
 	{
 		putchar('-');
-		(*count)++;
+		*count += 1;
 		num = -num;
 	}
-	while (temp > 9)
+	temp = num;
+	while (temp / 10 != 0)
 	{
-		temp /= 10;
 		divisor *= 10;
+		temp /= 10;
 	}
-	while (divisor > 0)
+	while (divisor != 0)
 	{
-		int digit = num / divisor;
-
-		putchar(digit + '0');
-		(*count)++;
+		putchar((num / divisor) + '0');
+		*count += 1;
 		num %= divisor;
 		divisor /= 10;
 	}
