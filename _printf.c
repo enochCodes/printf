@@ -17,7 +17,8 @@ int _printf(const char *format, ...)
 		{
 			putchar(format[i]);
 			count++;
-		} else
+		}
+		else
 		{
 			switch (format[i + 1])
 			{
