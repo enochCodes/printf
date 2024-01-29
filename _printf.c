@@ -63,6 +63,10 @@ int _printf(const char *format, ...)
 					putchar('%');
 					count++;
 					break;
+				case 'd':
+					handle_decimal(args, &count);
+					count++;
+					break;
 				default:
 				putchar('%');
 				putchar(format[i + 1]);
