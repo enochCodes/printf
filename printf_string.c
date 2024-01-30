@@ -11,6 +11,9 @@ void handle_string(va_list args, int *count)
 
 	str = va_arg(args, char *);
 
+	if (str == NULL)
+		str ="(null)";
+
 	for (j = 0; str[j] != '\0'; j++)
 	{
 		_putchar(str[j]);
