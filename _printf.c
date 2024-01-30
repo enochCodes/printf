@@ -1,42 +1,52 @@
 #include "main.h"
 /**
- * _printf - is a function that selects the correct function to print.
- * @format: identifier to look for.
- * Return: the length of the string.
+ * _printf - Custom printf function with limited functionality
+ * @format: Format string containing conversion specifiers
+ * Return: Number of characters printed (excluding the null byte)
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
-	convert_match m[] = {
-		{"%s", handle_string}, {"%c", handle_char},
-		{"%%", printf_37},
-		{"%i", handle_integer}, {"%d", handle_decimal}
-	};
-
+	int count, i;
 	va_list args;
-	int i = 0, j, len = 0;
 
+	count = 0;
 	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-Here:
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] != '%')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
-			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
-			}
-			j--;
+			_putchar(format[i]);
+			count++;
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		else
+		{
+			switch (format[i + 1])
+			{
+				case 'c':
+					handle_char(args, &count);
+					break;
+				case 's':
+					handle_string(args, &count);
+					break;
+				case '%':
+					_putchar(format[i]);
+					count++;
+					break;
+				case 'd':
+					handle_decimal(args);
+					break;
+				case 'i':
+					handle_integer(args);
+					break;
+				default:
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+					count += 2;
+					break;
+			}
+			i++;
+		}
 	}
 	va_end(args);
-	return (len);
+	return (count);
 }
