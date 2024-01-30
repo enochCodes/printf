@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 					_putchar(format[i]);
 					count++;
 					break;
+				case 'd':
+					handle_dicimal(args);
+				case 'i':
+					handle_integer(args);
+
 				default:
 					_putchar('%');
 					_putchar(format[i]);
