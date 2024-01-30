@@ -4,7 +4,7 @@
  * @args: va_list containing the arguments
  * @count: pointer to the count of characoters printed
  */
-void handle_string(va_list args, int *count)
+int handle_string(va_list args, int *count)
 {
 	int j;
 	char *str;
@@ -16,4 +16,5 @@ void handle_string(va_list args, int *count)
 		_putchar(str[j]);
 		(*count)++;
 	}
+	return (1);
 }

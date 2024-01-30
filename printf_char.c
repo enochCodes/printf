@@ -4,12 +4,13 @@
  * @args: va_list containing the arguments
  * @count: pointer to the count of characters printed
  */
-void handle_char(va_list args, int *count)
+int handle_char(va_list args, int *count)
 {
 	char ch;
 
 	ch = va_arg(args, int);
 	_putchar(ch);
+	return (1);
 	(*count)++;
 }
 
