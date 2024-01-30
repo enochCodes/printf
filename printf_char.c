@@ -9,7 +9,7 @@ void handle_char(va_list args, int *count)
 	char ch;
 
 	ch = va_arg(args, int);
-	putchar(ch);
+	_putchar(ch);
 	(*count)++;
 }
 

@@ -2,9 +2,11 @@
 #define _MAIN_H_
 
 #include <stdarg.h>
+#include <unistd.h>
 #include <stdio.h>
 
 int _printf(const char *format, ...);
+int _putchar(char c);
 void handle_string(va_list args, int *count);
 void handle_decimal(va_list args, int *count);
 void handle_char(va_list args, int *count);

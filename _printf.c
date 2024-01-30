@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			putchar(format[i]);
+			_putchar(format[i]);
 			count++;
 		}
 		else
@@ -29,15 +29,11 @@ int _printf(const char *format, ...)
 					handle_string(args, &count);
 					break;
 				case '%':
-					putchar('%');
-					count++;
-					break;
-				case 'd':
-					handle_decimal(args, &count);
+					_putchar(format[i]);
 					count++;
 					break;
 				default:
-					putchar('%');
+					_putchar(format[i]);
 					putchar(format[i + 1]);
 					count += 2;
 					break;

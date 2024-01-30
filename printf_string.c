@@ -13,7 +13,7 @@ void handle_string(va_list args, int *count)
 
 	for (j = 0; str[j] != '\0'; j++)
 	{
-		putchar(str[j]);
+		_putchar(str[j]);
 		(*count)++;
 	}
 }
