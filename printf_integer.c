@@ -19,7 +19,7 @@ int handle_integer(va_list args)
 	{
 		_putchar('-');
 		num = -num;
-		n - -n;
+		n = -n;
 		last = -last;
 		i++;
 	}
@@ -36,7 +36,7 @@ int handle_integer(va_list args)
 			digit = num / exp;
 			_putchar(digit + '0');
 			num = num - (digit * exp);
-			exp - exp / 10;
+			exp = exp / 10;
 			i++;
 		}
 	}
