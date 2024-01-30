@@ -3,6 +3,7 @@
  * handle_string - handles the 's' conversion specifier in _pritnf
  * @args: va_list containing the arguments
  * @count: pointer to the count of characoters printed
+ * Return: return 1
  */
 int handle_string(va_list args, int *count)
 {
