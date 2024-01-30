@@ -3,9 +3,8 @@
  * handle_string - handles the 's' conversion specifier in _pritnf
  * @args: va_list containing the arguments
  * @count: pointer to the count of characoters printed
- * Return: return 1
  */
-int handle_string(va_list args, int *count)
+void handle_string(va_list args, int *count)
 {
 	int j;
 	char *str;
@@ -17,5 +16,4 @@ int handle_string(va_list args, int *count)
 		_putchar(str[j]);
 		(*count)++;
 	}
-	return (1);
 }
