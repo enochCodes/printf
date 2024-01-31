@@ -22,18 +22,18 @@ int _printf(const char *format, ...)
 		{
 			switch (format[i + 1])
 			{
-				case 'c':
-					handle_char(args, &count);
-					break;
 				case 's':
-					handle_string(args, &count);
+					
+					break;
+				case 'c':
+					handle_char(args, *count);
 					break;
 				case '%':
 					_putchar(format[i]);
 					count++;
 					break;
 				case 'd':
-					handle_dicimal(args);
+					 handle_decimal(args);
 				case 'i':
 					handle_integer(args);
 
